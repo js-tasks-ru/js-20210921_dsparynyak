@@ -6,4 +6,22 @@
  */
 export function sortStrings(arr, param = 'asc') {
 
+    let newArray = arr.slice();
+
+    switch (param) {
+        case 'asc':
+            newArray.sort( function (a, b) {
+                return a.localeCompare(b, ['ru', 'en'], {caseFirst: 'upper'} );
+            });
+
+            break;
+        case 'desc':
+            newArray.sort( function (a, b) {
+                return b.localeCompare(a, ['ru', 'en'], {caseFirst: 'upper'} ); 
+            });
+            break;
+        default: 
+            break;
+    }
+    return newArray;
 }
