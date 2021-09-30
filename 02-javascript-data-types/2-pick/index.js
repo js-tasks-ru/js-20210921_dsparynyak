@@ -6,14 +6,13 @@
  */
 export const pick = (obj, ...fields) => {
 
-    let newObj = {};
+    const newObj = {};
 
-    for (let value in obj) {
-        if (fields.indexOf(value) !== -1) {
-            newObj[value] = obj[value];
+    for (const [key, value] of Object.entries(obj)) {
+        if (fields.includes(key)) {
+            newObj[key] = value;
         }
     }
-
 
     return newObj;
 };
